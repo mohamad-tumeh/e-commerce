@@ -19,7 +19,6 @@ interface CategoryFormProps {
 
 const CategoryForm: React.FC<CategoryFormProps> = ({ open, onClose, onSubmit, initialData }) => {
   const [name, setName] = useState(initialData?.name || '');
-  const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(initialData?.image || null);
 
   useEffect(() => {
@@ -30,7 +29,6 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ open, onClose, onSubmit, in
   const handleImageChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setImageFile(file);
       setImagePreview(URL.createObjectURL(file));
     }
   }, []);

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Box, CircularProgress, Snackbar, Alert, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Product } from '../models/Product';
 import { useCartContext } from '../context/CartContext';
 import ProductDetail from '../components/product/ProductDetail';
 import { useProductContext } from '../context/ProductContext';

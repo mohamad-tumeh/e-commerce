@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode, useState } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import { Product } from '../models/Product';
 

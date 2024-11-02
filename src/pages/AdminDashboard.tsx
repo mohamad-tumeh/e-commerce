@@ -45,17 +45,17 @@ const AdminDashboard: React.FC = () => {
     setOpenDetailDialog(true);
   }, []);
 
-  const getCategoryName = (categoryId: string) => {
+  const getCategoryName = useCallback((categoryId: string) => {
     const category = categories.find(c => c.id === categoryId);
     return category ? category.name : 'unknown';
-  };
+  }, [categories]);
 
   const formattedProducts = useMemo(() => {
     return filteredProducts.map(product => ({
       ...product,
       category: getCategoryName(product.categoryId),
     }));
-  }, [filteredProducts, categories]);
+  }, [filteredProducts, getCategoryName]);
 
   const productColumns = useMemo(() => [
     { id: 'name', label: 'Name' },

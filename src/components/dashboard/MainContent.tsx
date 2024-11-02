@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import {
     Box,
     Toolbar,
@@ -54,17 +54,17 @@ const MainContent: React.FC<MainContentProps> = ({
     filters,
     categories,
 }) => {
-    const getCategoryName = (categoryId: string) => {
+    const getCategoryName = useCallback((categoryId: string) => {
         const category = categories.find(c => c.id === categoryId);
         return category ? category.name : 'unknown';
-    };
+    }, [categories]);
 
     const enrichedProducts = useMemo(() => {
         return formattedProducts.map(product => ({
             ...product,
             category: getCategoryName(product.categoryId),
         }));
-    }, [formattedProducts, categories]);
+    }, [formattedProducts, getCategoryName]); 
 
     const handleOpenProductDialog = () => {
         dialogState.selectedItem = null;  

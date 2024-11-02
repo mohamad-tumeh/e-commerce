@@ -13,7 +13,7 @@ const CheckoutPage: React.FC = () => {
 
     useEffect(() => {
         setTotalAmount(calculateTotalAmount(cartItems));
-    }, []);
+    }, [cartItems]);
 
     const handlePayment = async () => {
         const amount = calculateTotalAmount(cartItems);

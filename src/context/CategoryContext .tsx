@@ -17,8 +17,12 @@ const CategoryProvider: React.FC<{ children: React.ReactNode }> = ({ children })
     const { categories, loading, addCategory, fetchCategories, editCategory, deleteCategory } = useCategory();
 
     useEffect(() => {
-        fetchCategories();
-    }, []);
+        const loadCategories = async () => {
+            await fetchCategories();
+        };
+        
+        loadCategories();
+    }, [fetchCategories]);
 
     return (
         <CategoryContext.Provider value={{ categories, loading, addCategory, fetchCategories, editCategory, deleteCategory }}>

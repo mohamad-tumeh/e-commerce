@@ -14,8 +14,8 @@ import { useProductContext } from '../../context/ProductContext';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { Product } from '../../models/Product';
 import { Category } from '../../models/Category';
-import { useCategoryContext } from '../../context/CategoryContext ';
 import ColorPicker from '../ColorPicker';
+import { useCategoryContext } from '../../context/CategoryContext ';
 
 interface ProductFormProps {
   onClose: () => void;
@@ -33,7 +33,6 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose, product }) => {
   const [categoryId, setCategoryId] = useState(product?.categoryId.toString() || '');
   const [colors, setColors] = useState<string[]>(product?.colors || []);
   const [sizes, setSizes] = useState<string[]>(product?.sizes || []);
-  const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(product?.image || null);
   const [validationError, setValidationError] = useState<string>('');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -55,33 +54,30 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose, product }) => {
       setSizes(product.sizes || []);
       setImagePreview(product.image);
     }
-  }, [product]);
+  }, [product, fetchCategories]); // Add fetchCategories to the dependency array
 
   const handleImageChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImageFile(file);
         setImagePreview(reader.result as string);
       };
       reader.readAsDataURL(file);
     }
   }, []);
-  
 
   const sizeArray = useMemo(() => sizes.map(s => s.trim()), [sizes]);
 
-
   const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (!name || !description || !price || !categoryId || colors.length === 0 || sizeArray.length === 0) {
       setValidationError('All fields are required, and at least one color and size must be provided.');
       setSnackbarOpen(true);
       return;
     }
-  
+
     const newProduct: Product = {
       id: product?.id || Math.random().toString(),
       name,
@@ -92,18 +88,18 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose, product }) => {
       colors,
       sizes: sizeArray,
     };
-  
+
     setValidationError('');
-  
+
     if (product) {
       await updateProduct(newProduct);
     } else {
       await addProduct(newProduct);
     }
-  
+
     onClose();
-  }, [name, description, price, categoryId, colors, sizeArray]);
-  
+  }, [name, description, price, categoryId, colors, sizeArray, imagePreview, onClose, addProduct, updateProduct, product]); // Add missing dependencies
+
   const handleDelete = async () => {
     if (product) {
       await deleteProduct(product.id);
