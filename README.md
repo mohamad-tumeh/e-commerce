@@ -13,5 +13,14 @@ You will also see any lint errors in the console.
 
 ### `Project Live`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://ecommerce-app-git-main-mohammeds-projects-42428f4d.vercel.app/products) for more information.
+This link provides access to the live version of the project. You can explore the features and functionality directly in your browser.
+For more information about running tests, please refer to the section available at the following link: [project live](https://ecommerce-e4lucajug-mohammeds-projects-42428f4d.vercel.app/products).
+
+
+
+### `Project Demo`
+
+
+To view a detailed demonstration of the project, including its features and functionalities, please watch the demo video at the following link:
+[project demo](https://drive.google.com/file/d/14jdPAjZMOnVqi8CVAt27dnUo-vZ_ztri/view?usp=sharing).
+
