@@ -21,13 +21,14 @@
   ],
   "categories": [
     {
-      "name": "Womennn",
+      "name": "Women",
+      "image": "blob:http://localhost:3000/0455526b-2f8e-424e-8088-17adf9969e5e",
       "id": "1"
     },
     {
-      "id": "2",
       "name": "Men",
-      "image": "/images/men.jpg"
+      "image": "blob:http://localhost:3000/e5b1afbe-b705-44d0-b39b-a2927f57ed4f",
+      "id": "2"
     }
   ],
   "products": [
@@ -741,29 +742,7 @@
           "quantity": 3,
           "selectedColor": "#c65555",
           "selectedSize": "red"
-        },
-        {
-          "id": "e121",
-          "items": [
-            {
-              "product": {
-                "id": "0.44198766005073287",
-                "name": "نصثمبصثىبمتذ",
-                "description": "ششششششششششششششش",
-                "price": 45645,
-                "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAApCAYAAADH0VzbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAVmSURBVHgB7VtBUttIFP3d9hQmGzyLqQrJIiIXGHMC5BMAJwgsMgVssE8QcwJgMWFqsrBzgtgnQJwgygWCsshAzSziWYETuzvvtyRHdsA2UgBVql+VLem79dX6r/v/7t9tQQk45VqZSpdlsrhzBOd/BclrwV9MiJzvNTWRqzV1yeLOIQSVhRAH7/95uWeu+WtpcftUk+7QRakRdA8sMfcA5+GWI4XYx2nw/uyoLiDYAD/PgvOjKlncKxynVha93imRrEj0mQo+HbK4dwTBQVdr3dF6UC2SJgR7bd1XziDJIpewxOQUlpicwhKTU1hicgpLTE5hickpLDE5hSUmpyjSHSLKBR0j7XCINHdrYtnHzyukim5wdnQwSxlOAgoh32it6tDt0Y+sN2ffH3zeRb1ruESmRPh4zvAdni7u7CIJzL85+ATIEntKqb3xVP5NkIqYONmGitaTBnYebTWFFhv6Yu7XZJYa2etPWFLgdHYLv/tazLC0MChUkArfxdnBTGVKpS7qFOA5Ac1W/zdwGBunZ39+mFjWEM6NyRg9gsZzRXMJhHA6C6S4yVtglw387oLQ5bTZ+lTEcLINxvYlyRVctmI5jO6ak9LlWix3Hu+gVesy9fseWjZXcpNuAVwnHNZnKnyJxUAR1XUaJL2gEVKS0JUJdzqwA/eiBqVAaleGVnGCrPSzYS1CAri1vDYZ6xiq7xIVguC/Vz5fmrWfwaAe/Pt3O2yNomlegkQXrb8dLxQN9X4rA50iSLqQK8od635/nZ81rju+D3I3knPlPNQHR+le13OGjS0F8BzuzQ1KgSzB3yP2CrwczQAB6O4sawms73wrVlhBV3+XuM8hKc09bCCs1Plwfcsw3Dq7AGdxuzZSQSweQb6nZb+KMh2+h417TZ0cKhRi3RzLTk7Pjpa0/LKJ633oXoPL8zUN6lzG6NV6c4o7cyg9Ui/TpycGL4jvLrqr6R2CCqtmXSeUk/Pb80iOlq6pfZUKxANHDQYn7Ic5UOK6DmstJIo4KoxjXvDxlY9jg7hBCFqj6XAobDzE93I8ZJlxeVqaOgpROJ42UJglZk1AQCmR2pXFcYaNhGDqU6/nIo7UOY4YebHoomWz33doMPCvUXMoCoXm00c7qyCgA1LY+O2Rx4yNbGDgD4htC9Pqx73B9K7FbdZ3Qhdz7XSBGPUi45JuDLhBj1Ii0zyGXQXc1u+GFDZiFEfgKjroKehBopKUj4OHudCxHJGyBkOejruytODeBd1V6H1ndM/33sa9+EbQZlSYamSlSO1RSmSdYHrErkro1ZHWIYuhHAYZiy8jcBb/qKE3lUFQG4bcYH8PQlO1zu90P9xq0GWJXWQr0v2aioUG3RCRi72xgdktZ5nHZCIm9s8gZU2p/nDfQPDxZeTDxep18SV6vCOKv3Awd8yVlE+Ifsz2KTx7BZPC/Vg33vSJ1PKTOcech58jSNV4IDEcwFyDqGfPTI4hZcLEeBZkTsmgEp7Zi/b5gTcix+zeyMfiC2QBKRUaf67U0KROeATFk1ClNEZ2OpyLCB7iXhE8he4qof6/qszoud7E7BuqxVvWTUo4sWsxmx4wn1JELpQ0xfyXqTHLuMZwnhRMKMabKapZSWHw9qUWjt60FIlFiMT8yE3Kw6mC3sziviL9LRy8O82V/QyIDF/lGAaCeL5W5hgUnGfvJUlYYlIimlM16JZg0/45hSUmp7DE5BSWmJzCEpNTWGJyCktMTmGJySn4j0td5JzsH2LzAiEWOJcoOfvLqfZpGVaL24fJwxFWZ6X0RSQweR/OyFK2pVSL9OBNIi+Qdzvk7LSIpfwnWd5EobNtPrBICSnIV+FGSI+vvwITfL7JlNuinAAAAABJRU5ErkJggg==",
-                "categoryId": "1",
-                "colors": [
-                  "#c65555"
-                ],
-                "sizes": [
-                  "red"
-                ]
-              },
-              "quantity": 3,
-              "selectedColor": "#c65555",
-              "selectedSize": "red"
-            }
+        }
       ],
       "totalAmount": 136935,
       "date": "2024-11-02T07:05:22.146Z"

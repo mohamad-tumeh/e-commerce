@@ -64,8 +64,13 @@ const MainContent: React.FC<MainContentProps> = ({
             ...product,
             category: getCategoryName(product.categoryId),
         }));
-    }, [formattedProducts, categories]); 
-    
+    }, [formattedProducts, categories]);
+
+    const handleOpenProductDialog = () => {
+        dialogState.selectedItem = null;  
+        dialogState.handleOpenProductDialog();
+    };
+
     return (
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <Toolbar />
@@ -76,7 +81,7 @@ const MainContent: React.FC<MainContentProps> = ({
                         variant="contained"
                         color="primary"
                         startIcon={<AddIcon />}
-                        onClick={dialogState.handleOpenProductDialog}
+                        onClick={handleOpenProductDialog} 
                         sx={{ mb: 2 }}
                     >
                         Add Product
@@ -108,7 +113,6 @@ const MainContent: React.FC<MainContentProps> = ({
                     <ProductDialog
                         open={dialogState.openProductDialog}
                         onClose={dialogState.handleCloseProductDialog}
-                        selectedProduct={dialogState.selectedItem}
                     />
 
                     <ProductDialog
