@@ -1,26 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, TextField, Grid, Typography, MenuItem, Select, InputAdornment } from '@mui/material';
 import { useProductContext } from '../context/ProductContext';
 import ProductCard from '../components/product/ProductCard';
 import SearchIcon from '@mui/icons-material/Search';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import { Product } from '../models/Product';
 import { useCategoryContext } from '../context/CategoryContext ';
 
 const Products: React.FC = () => {
-    const { products, fetchProducts, totalProductsCount } = useProductContext();
+    const { products } = useProductContext();
     const { categories, loading: categoriesLoading } = useCategoryContext();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
-    const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-    const [page, setPage] = useState(1);
-    const [loadingMore, setLoadingMore] = useState(false);
-
-    useEffect(() => {
-        fetchProducts(page);
-    }, [fetchProducts, page]);
+    const [filteredProducts, setFilteredProducts] = useState(products);
 
     useEffect(() => {
         const filtered = products.filter((product) =>
@@ -31,24 +24,6 @@ const Products: React.FC = () => {
         );
         setFilteredProducts(filtered);
     }, [searchTerm, selectedCategory, minPrice, maxPrice, products]);
-
-    const handleScroll = useCallback(() => {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        const scrollY = window.scrollY;
-
-        if (windowHeight + scrollY >= documentHeight - 100 && !loadingMore && filteredProducts.length < totalProductsCount) {
-            setLoadingMore(true);
-            setPage((prev) => prev + 1);
-        }
-    }, [loadingMore, filteredProducts.length, totalProductsCount]);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [handleScroll]);
 
     return (
         <Box sx={{ p: 4, bgcolor: '#f9f9f9', borderRadius: 2, boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)' }}>
@@ -80,7 +55,7 @@ const Products: React.FC = () => {
                         ),
                     }}
                 />
-
+                
                 <Select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
@@ -145,14 +120,6 @@ const Products: React.FC = () => {
                 <Box sx={{ textAlign: 'center', mt: 4 }}>
                     <Typography variant="h6" color="textSecondary">
                         No products found for the selected filters. Try adjusting the filters or search criteria.
-                    </Typography>
-                </Box>
-            )}
-
-            {loadingMore && (
-                <Box sx={{ textAlign: 'center', mt: 4 }}>
-                    <Typography variant="h6" color="textSecondary">
-                        Loading more products...
                     </Typography>
                 </Box>
             )}
