@@ -14,7 +14,7 @@ You will also see any lint errors in the console.
 ### `Project Live`
 
 This link provides access to the live version of the project. You can explore the features and functionality directly in your browser.
-For more information about running tests, please refer to the section available at the following link: [project live](https://ecommerce-9vlqtqcfx-mohammeds-projects-42428f4d.vercel.app/products).
+For more information about running tests, please refer to the section available at the following link: [project live](https://ecommerce963.netlify.app).
 
 
 
