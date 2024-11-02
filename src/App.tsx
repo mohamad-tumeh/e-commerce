@@ -4,7 +4,6 @@ import { AuthProvider } from './context/AuthContext';
 import { ProductProvider } from './context/ProductContext';
 import { CartProvider } from './context/CartContext';
 import { createTheme, ThemeProvider } from '@mui/material';
-import Navbar from './components/Navbar';
 import { CategoryProvider } from './context/CategoryContext ';
 import AppRoutes from './routes/AppRoutes';
 
@@ -29,7 +28,6 @@ const App: React.FC = () => (
         <ProductProvider>
           <CartProvider>
             <Router>
-              <Navbar />
               <AppRoutes />
             </Router>
           </CartProvider>
